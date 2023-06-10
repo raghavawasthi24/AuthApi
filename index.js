@@ -9,7 +9,7 @@ const PORT=5000;
 
 app.use(bodyparser.json());
 
-app.use('/users',userRouter);
+app.use('/',userRouter);
 
 
 
