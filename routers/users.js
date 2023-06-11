@@ -1,5 +1,7 @@
 const express=require("express");
-const User=require("../src/models/student")
+const mongoose=require("mongoose");
+const User=require("../src/models/student");
+const Student = require("../src/models/student");
 const router =express.Router();
 
 router.post('/register',(req,res)=>{
@@ -7,12 +9,20 @@ router.post('/register',(req,res)=>{
         name:req.body.name,
         gender:req.body.gender,
     })
-    user.save().then(()=>{
+    user.save().then((result)=>{
         res.status(200).send({
-            msg:"Successfully posted"
+            msg:"Successfully posted",
+            id:result.id,
         })
     })
 }
 )
+
+router.get("/register",(req,res)=>{
+    Student.find().then((result)=>{
+        res.status(201).send(result);
+    })
+    
+})
 
 module.exports=router;

@@ -8,13 +8,9 @@ const app=express();
 const PORT=5000;
 
 app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({extended:false}))
 
-app.use('/',userRouter);
-
-
-
- 
-
+app.use('/api',userRouter);
 
 app.get('/',(req,res)=>{
     res.send("Welcome to Homepage");
