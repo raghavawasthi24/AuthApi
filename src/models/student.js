@@ -7,6 +7,10 @@ const StudentSchema =new mongoose.Schema({
     gender:{
         type:String,
         required:true,
+    },
+    email:{
+        type:String,
+        required:true
     }
 });
 
